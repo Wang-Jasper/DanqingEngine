@@ -1,0 +1,12 @@
+# PBR Material for Test Sphere
+newmtl PBR_Material
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ns 225.000000
+Ni 1.500000
+d 1.000000
+illum 2
+# PBR extensions:
+# Pr 0.500000  (roughness)
+# Pm 0.000000  (metallic)

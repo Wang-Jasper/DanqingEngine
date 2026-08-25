@@ -1,0 +1,361 @@
+{
+  "entities": [
+    {
+      "boxCollider": {
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "halfExtents": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 0,
+      "material": {
+        "albedo": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ],
+        "metallic": 0.0,
+        "roughness": 0.5
+      },
+      "mesh": {
+        "source": "builtin:cube"
+      },
+      "name": "Cube",
+      "rigidBody": {
+        "bodyType": 1,
+        "friction": 0.5,
+        "mass": 1.0,
+        "restitution": 0.30000001192092896
+      },
+      "transform": {
+        "position": [
+          0.0,
+          7.0,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "boxCollider": {
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "halfExtents": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 1,
+      "material": {
+        "albedo": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ],
+        "metallic": 0.0,
+        "roughness": 0.5
+      },
+      "mesh": {
+        "source": "builtin:cube"
+      },
+      "name": "Cube",
+      "rigidBody": {
+        "bodyType": 1,
+        "friction": 0.5,
+        "mass": 1.0,
+        "restitution": 0.30000001192092896
+      },
+      "transform": {
+        "position": [
+          0.0,
+          5.0,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 2,
+      "name": "Green Light",
+      "pointLight": {
+        "color": [
+          0.20000000298023224,
+          1.0,
+          0.30000001192092896
+        ],
+        "intensity": 1.5,
+        "radius": 5.0
+      },
+      "transform": {
+        "position": [
+          1.5,
+          0.5,
+          -2.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 3,
+      "name": "Red Light",
+      "pointLight": {
+        "color": [
+          1.0,
+          0.30000001192092896,
+          0.20000000298023224
+        ],
+        "intensity": 1.5,
+        "radius": 5.0
+      },
+      "transform": {
+        "position": [
+          0.0,
+          -1.0,
+          2.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 4,
+      "name": "Cool Blue Light",
+      "pointLight": {
+        "color": [
+          0.30000001192092896,
+          0.5,
+          1.0
+        ],
+        "intensity": 2.0,
+        "radius": 6.0
+      },
+      "transform": {
+        "position": [
+          -2.0,
+          1.5,
+          -1.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 5,
+      "name": "Warm White Light",
+      "pointLight": {
+        "color": [
+          1.0,
+          0.8999999761581421,
+          0.800000011920929
+        ],
+        "intensity": 3.0,
+        "radius": 8.0
+      },
+      "transform": {
+        "position": [
+          2.0,
+          2.0,
+          2.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "boxCollider": {
+        "center": [
+          0.0,
+          -0.5,
+          0.0
+        ],
+        "halfExtents": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 6,
+      "material": {
+        "albedo": [
+          0.4000000059604645,
+          0.4000000059604645,
+          0.44999998807907104
+        ],
+        "metallic": 0.0,
+        "roughness": 0.8999999761581421
+      },
+      "mesh": {
+        "source": "builtin:plane"
+      },
+      "name": "Ground",
+      "rigidBody": {
+        "bodyType": 0,
+        "friction": 0.800000011920929,
+        "mass": 0.0,
+        "restitution": 0.30000001192092896
+      },
+      "transform": {
+        "position": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "scale": [
+          10.0,
+          1.0,
+          10.0
+        ]
+      }
+    },
+    {
+      "boxCollider": {
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "halfExtents": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 7,
+      "material": {
+        "albedo": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ],
+        "metallic": 0.0,
+        "roughness": 0.5
+      },
+      "mesh": {
+        "source": "builtin:cube"
+      },
+      "name": "Cube",
+      "rigidBody": {
+        "bodyType": 1,
+        "friction": 0.5,
+        "mass": 1.0,
+        "restitution": 0.30000001192092896
+      },
+      "transform": {
+        "position": [
+          0.0,
+          3.0,
+          0.0
+        ],
+        "rotation": [
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  ],
+  "version": 1
+}

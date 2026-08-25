@@ -1,0 +1,272 @@
+{
+    "version": 1,
+    "entities": [
+        {
+            "id": 0,
+            "name": "Ambient Light",
+            "transform": {
+                "position": [
+                    2.0,
+                    3.0,
+                    2.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "pointLight": {
+                "color": [
+                    1.0,
+                    0.95,
+                    0.85
+                ],
+                "intensity": 3.0,
+                "radius": 15.0
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 1,
+            "name": "Floor (Static Box)",
+            "transform": {
+                "position": [
+                    0.0,
+                    -0.5,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "rigidBody": {
+                "bodyType": 0,
+                "mass": 0.0,
+                "restitution": 0.2,
+                "friction": 0.8
+            },
+            "boxCollider": {
+                "center": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "halfExtents": [
+                    5.0,
+                    0.5,
+                    5.0
+                ]
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 2,
+            "name": "Dynamic Sphere",
+            "transform": {
+                "position": [
+                    -1.5,
+                    3.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "rigidBody": {
+                "bodyType": 1,
+                "mass": 1.0,
+                "restitution": 0.3,
+                "friction": 0.5
+            },
+            "colliders": [
+                {
+                    "type": "Sphere",
+                    "localPos": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "localRot": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ],
+                    "radius": 0.4,
+                    "material": {
+                        "restitution": 0.3,
+                        "friction": 0.5,
+                        "rollingFriction": 0.02
+                    },
+                    "layer": 0,
+                    "mask": 0,
+                    "isTrigger": false
+                }
+            ],
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 3,
+            "name": "Dynamic Capsule",
+            "transform": {
+                "position": [
+                    0.0,
+                    3.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "rigidBody": {
+                "bodyType": 1,
+                "mass": 1.0,
+                "restitution": 0.2,
+                "friction": 0.6
+            },
+            "colliders": [
+                {
+                    "type": "Capsule",
+                    "localPos": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "localRot": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ],
+                    "radius": 0.3,
+                    "halfHeight": 0.5,
+                    "material": {
+                        "restitution": 0.2,
+                        "friction": 0.6,
+                        "rollingFriction": 0.02
+                    },
+                    "layer": 0,
+                    "mask": 0,
+                    "isTrigger": false
+                }
+            ],
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 4,
+            "name": "Dynamic Tetrahedron (ConvexHull)",
+            "transform": {
+                "position": [
+                    1.5,
+                    3.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "rigidBody": {
+                "bodyType": 1,
+                "mass": 1.0,
+                "restitution": 0.2,
+                "friction": 0.6
+            },
+            "colliders": [
+                {
+                    "type": "ConvexHull",
+                    "localPos": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "localRot": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ],
+                    "vertices": [
+                        [
+                            0.5,
+                            0.5,
+                            0.5
+                        ],
+                        [
+                            0.5,
+                            -0.5,
+                            -0.5
+                        ],
+                        [
+                            -0.5,
+                            0.5,
+                            -0.5
+                        ],
+                        [
+                            -0.5,
+                            -0.5,
+                            0.5
+                        ]
+                    ],
+                    "material": {
+                        "restitution": 0.2,
+                        "friction": 0.6,
+                        "rollingFriction": 0.02
+                    },
+                    "layer": 0,
+                    "mask": 0,
+                    "isTrigger": false
+                }
+            ],
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        }
+    ]
+}

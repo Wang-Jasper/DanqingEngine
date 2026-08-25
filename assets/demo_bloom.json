@@ -1,0 +1,649 @@
+{
+    "version": 1,
+    "_about": "Bloom demo scene - several HDR pixels to exercise the composite bloom threshold / scatter / intensity. Suggested settings: Threshold~1.0, Scatter~0.7, Intensity~1.0",
+    "_layout": "Row1 [x=-7.5..7.5, z=0]: 6 white-metal cubes + 6 colored point lights (intensity=30) -> main glow showcase. Row2 [z=-5]: 2 dim grey cubes + 1 dim light (intensity=1.5) -> threshold reference (should stay out of bloom). Row3 [z=3.5]: 1 white metal cube + intensity=80 spotlight-like -> brightest HDR anchor",
+    "entities": [
+        {
+            "id": 0,
+            "name": "Ground (Dark)",
+            "transform": {
+                "position": [
+                    0.0,
+                    -1.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    40.0,
+                    1.0,
+                    40.0
+                ]
+            },
+            "mesh": {
+                "source": "builtin:plane"
+            },
+            "material": {
+                "albedo": [
+                    0.05,
+                    0.05,
+                    0.06
+                ],
+                "metallic": 0.0,
+                "roughness": 0.9
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 10,
+            "name": "Reflector_Red",
+            "transform": {
+                "position": [
+                    -7.5,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    30.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "mesh": {
+                "source": "builtin:cube"
+            },
+            "material": {
+                "albedo": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallic": 0.9,
+                "roughness": 0.15
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 11,
+            "name": "Light_Red",
+            "transform": {
+                "position": [
+                    -7.5,
+                    0.4,
+                    1.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "pointLight": {
+                "color": [
+                    1.0,
+                    0.15,
+                    0.1
+                ],
+                "intensity": 30.0,
+                "radius": 3.5
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 20,
+            "name": "Reflector_Orange",
+            "transform": {
+                "position": [
+                    -4.5,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    30.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "mesh": {
+                "source": "builtin:cube"
+            },
+            "material": {
+                "albedo": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallic": 0.9,
+                "roughness": 0.15
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 21,
+            "name": "Light_Orange",
+            "transform": {
+                "position": [
+                    -4.5,
+                    0.4,
+                    1.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "pointLight": {
+                "color": [
+                    1.0,
+                    0.5,
+                    0.1
+                ],
+                "intensity": 30.0,
+                "radius": 3.5
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 30,
+            "name": "Reflector_Yellow",
+            "transform": {
+                "position": [
+                    -1.5,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    30.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "mesh": {
+                "source": "builtin:cube"
+            },
+            "material": {
+                "albedo": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallic": 0.9,
+                "roughness": 0.15
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 31,
+            "name": "Light_Yellow",
+            "transform": {
+                "position": [
+                    -1.5,
+                    0.4,
+                    1.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "pointLight": {
+                "color": [
+                    1.0,
+                    0.95,
+                    0.2
+                ],
+                "intensity": 30.0,
+                "radius": 3.5
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 40,
+            "name": "Reflector_Green",
+            "transform": {
+                "position": [
+                    1.5,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    30.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "mesh": {
+                "source": "builtin:cube"
+            },
+            "material": {
+                "albedo": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallic": 0.9,
+                "roughness": 0.15
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 41,
+            "name": "Light_Green",
+            "transform": {
+                "position": [
+                    1.5,
+                    0.4,
+                    1.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "pointLight": {
+                "color": [
+                    0.15,
+                    1.0,
+                    0.25
+                ],
+                "intensity": 30.0,
+                "radius": 3.5
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 50,
+            "name": "Reflector_Cyan",
+            "transform": {
+                "position": [
+                    4.5,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    30.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "mesh": {
+                "source": "builtin:cube"
+            },
+            "material": {
+                "albedo": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallic": 0.9,
+                "roughness": 0.15
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 51,
+            "name": "Light_Cyan",
+            "transform": {
+                "position": [
+                    4.5,
+                    0.4,
+                    1.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "pointLight": {
+                "color": [
+                    0.1,
+                    0.9,
+                    1.0
+                ],
+                "intensity": 30.0,
+                "radius": 3.5
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 60,
+            "name": "Reflector_Magenta",
+            "transform": {
+                "position": [
+                    7.5,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    30.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "mesh": {
+                "source": "builtin:cube"
+            },
+            "material": {
+                "albedo": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallic": 0.9,
+                "roughness": 0.15
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 61,
+            "name": "Light_Magenta",
+            "transform": {
+                "position": [
+                    7.5,
+                    0.4,
+                    1.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "pointLight": {
+                "color": [
+                    1.0,
+                    0.15,
+                    0.9
+                ],
+                "intensity": 30.0,
+                "radius": 3.5
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 70,
+            "name": "DimReference_Left",
+            "transform": {
+                "position": [
+                    -3.0,
+                    0.0,
+                    -5.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "mesh": {
+                "source": "builtin:cube"
+            },
+            "material": {
+                "albedo": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "metallic": 0.0,
+                "roughness": 0.8
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 71,
+            "name": "DimReference_Right",
+            "transform": {
+                "position": [
+                    3.0,
+                    0.0,
+                    -5.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "mesh": {
+                "source": "builtin:cube"
+            },
+            "material": {
+                "albedo": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "metallic": 0.0,
+                "roughness": 0.8
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 72,
+            "name": "DimReference_Light",
+            "transform": {
+                "position": [
+                    0.0,
+                    1.5,
+                    -4.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "pointLight": {
+                "color": [
+                    0.6,
+                    0.6,
+                    0.7
+                ],
+                "intensity": 1.5,
+                "radius": 6.0
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 80,
+            "name": "HotSpot_Cube",
+            "transform": {
+                "position": [
+                    0.0,
+                    1.2,
+                    3.5
+                ],
+                "rotation": [
+                    0.0,
+                    45.0,
+                    45.0
+                ],
+                "scale": [
+                    0.4,
+                    0.4,
+                    0.4
+                ]
+            },
+            "mesh": {
+                "source": "builtin:cube"
+            },
+            "material": {
+                "albedo": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallic": 1.0,
+                "roughness": 0.05
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        },
+        {
+            "id": 81,
+            "name": "HotSpot_Light",
+            "transform": {
+                "position": [
+                    0.0,
+                    2.0,
+                    4.5
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "pointLight": {
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "intensity": 80.0,
+                "radius": 4.0
+            },
+            "hierarchy": {
+                "parent": null,
+                "children": []
+            }
+        }
+    ]
+}

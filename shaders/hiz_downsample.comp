@@ -1,0 +1,78 @@
+// hiz_downsample.comp — one dispatch builds one mip of the Hi-Z depth pyramid
+// (callers dispatch mip 0 -> mipN, rebinding src/dst views). OpenGL-style depth
+// (LESS test, 0=near/1=far), so conservative "far" = max of the 2x2 tile.
+#version 450
+layout(local_size_x = 16, local_size_y = 16, local_size_z = 1) in;
+
+layout(set = 0, binding = 0) uniform sampler2D srcTex;
+layout(set = 0, binding = 1, r32f) uniform writeonly image2D dstImg;
+
+layout(push_constant) uniform PushConstants {
+    ivec2 dstSize;   // width/height of the target mip (pixels)
+    ivec2 srcSize;   // width/height of the source mip (pixels)
+    int   mode;      // 0 = build mip0 from depth; 1 = build from previous mip
+    int   _pad0;
+    int   _pad1;
+    int   _pad2;
+} pc;
+
+// Sample with normalized coords; the linear sampler + clamp-to-edge handles out-of-range.
+float sampleSrc(vec2 uv) {
+    return texture(srcTex, uv).r;
+}
+
+void main() {
+    ivec2 dstCoord = ivec2(gl_GlobalInvocationID.xy);
+    if (dstCoord.x >= pc.dstSize.x || dstCoord.y >= pc.dstSize.y)
+        return;
+
+    vec2 srcSizeF = vec2(pc.srcSize);
+
+    // mode == 0: mip 0 build (src = depth, dstSize == srcSize). This is a 1:1
+    // copy, not a 2x2 reduce; writing srcBase = dstCoord*2 would clamp the
+    // right/bottom dst pixels to the depth border and blank them out.
+    if (pc.mode == 0) {
+        vec2 uv = (vec2(dstCoord) + vec2(0.5, 0.5)) / srcSizeF;
+        float d = sampleSrc(uv);
+        imageStore(dstImg, dstCoord, vec4(d, 0.0, 0.0, 0.0));
+        return;
+    }
+
+    // mode == 1: mip i>=1 build (2x2 max-reduce). The four source taps: the dst
+    // pixel center (x+0.5, y+0.5) * 2 maps to the src 2x2 tile center; in
+    // normalized coords src uv = (srcCoord + 0.5) / srcSize.
+    ivec2 srcBase = dstCoord * 2;
+
+    vec2 uv00 = (vec2(srcBase) + vec2(0.5, 0.5)) / srcSizeF;
+    vec2 uv10 = (vec2(srcBase + ivec2(1, 0)) + vec2(0.5, 0.5)) / srcSizeF;
+    vec2 uv01 = (vec2(srcBase + ivec2(0, 1)) + vec2(0.5, 0.5)) / srcSizeF;
+    vec2 uv11 = (vec2(srcBase + ivec2(1, 1)) + vec2(0.5, 0.5)) / srcSizeF;
+
+    float d00 = sampleSrc(uv00);
+    float d10 = sampleSrc(uv10);
+    float d01 = sampleSrc(uv01);
+    float d11 = sampleSrc(uv11);
+    float dmax = max(max(d00, d10), max(d01, d11));
+
+    // Border retaps (non-power-of-2): on the last row/column, also read the
+    // right/bottom half-row so no source pixels are dropped.
+    bool lastCol = (dstCoord.x == pc.dstSize.x - 1);
+    bool lastRow = (dstCoord.y == pc.dstSize.y - 1);
+    if (lastCol && (pc.srcSize.x > srcBase.x + 2)) {
+        vec2 uv20 = (vec2(srcBase + ivec2(2, 0)) + vec2(0.5, 0.5)) / srcSizeF;
+        vec2 uv21 = (vec2(srcBase + ivec2(2, 1)) + vec2(0.5, 0.5)) / srcSizeF;
+        dmax = max(dmax, max(sampleSrc(uv20), sampleSrc(uv21)));
+    }
+    if (lastRow && (pc.srcSize.y > srcBase.y + 2)) {
+        vec2 uv02 = (vec2(srcBase + ivec2(0, 2)) + vec2(0.5, 0.5)) / srcSizeF;
+        vec2 uv12 = (vec2(srcBase + ivec2(1, 2)) + vec2(0.5, 0.5)) / srcSizeF;
+        dmax = max(dmax, max(sampleSrc(uv02), sampleSrc(uv12)));
+    }
+    if (lastRow && lastCol &&
+        (pc.srcSize.x > srcBase.x + 2) && (pc.srcSize.y > srcBase.y + 2)) {
+        vec2 uv22 = (vec2(srcBase + ivec2(2, 2)) + vec2(0.5, 0.5)) / srcSizeF;
+        dmax = max(dmax, sampleSrc(uv22));
+    }
+
+    imageStore(dstImg, dstCoord, vec4(dmax, 0.0, 0.0, 0.0));
+}

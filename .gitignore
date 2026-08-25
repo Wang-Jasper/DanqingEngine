@@ -1,0 +1,44 @@
+# ---- Build outputs ----
+/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.user
+*.suo
+*.tlog
+Makefile
+compile_commands.json
+
+# ---- FetchContent dependencies ----
+/_deps/
+
+# ---- Local development notes (not for public release) ----
+/docs/
+
+# ---- Logs ----
+*.log
+
+# ---- Python ----
+__pycache__/
+*.pyc
+
+# ---- Benchmark outputs ----
+benchmarks/out/
+benchmarks/archive/
+
+# ---- Asset runtime caches ----
+assets/.registry.cache
+
+# ---- Compiled shaders ----
+*.spv
+
+# ---- Editor / IDE ----
+.vs/
+.vscode/
+.idea/
+*.swp

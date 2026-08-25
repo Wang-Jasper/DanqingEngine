@@ -1,0 +1,169 @@
+{
+  "entities": [
+    {
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 0,
+      "name": "Green Light",
+      "pointLight": {
+        "color": [
+          0.20000000298023224,
+          1.0,
+          0.30000001192092896
+        ],
+        "intensity": 1.5,
+        "radius": 5.0
+      },
+      "transform": {
+        "position": [
+          1.5,
+          0.5,
+          -2.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 1,
+      "name": "Warm White Light",
+      "pointLight": {
+        "color": [
+          1.0,
+          0.8999999761581421,
+          0.800000011920929
+        ],
+        "intensity": 3.0,
+        "radius": 8.0
+      },
+      "transform": {
+        "position": [
+          2.0,
+          2.0,
+          2.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 2,
+      "name": "Cool Blue Light",
+      "pointLight": {
+        "color": [
+          0.30000001192092896,
+          0.5,
+          1.0
+        ],
+        "intensity": 2.0,
+        "radius": 6.0
+      },
+      "transform": {
+        "position": [
+          -2.0,
+          1.5,
+          -1.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 3,
+      "name": "Red Light",
+      "pointLight": {
+        "color": [
+          1.0,
+          0.30000001192092896,
+          0.20000000298023224
+        ],
+        "intensity": 1.5,
+        "radius": 5.0
+      },
+      "transform": {
+        "position": [
+          0.0,
+          -1.0,
+          2.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "hierarchy": {
+        "children": [],
+        "parent": null
+      },
+      "id": 4,
+      "mesh": {
+        "source": "guid:1b80eae5-5997-4b93-a440-78300bfe5e4f"
+      },
+      "name": "stanford-bunny.obj",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          10.0,
+          10.0,
+          10.0
+        ]
+      }
+    }
+  ],
+  "version": 1
+}
