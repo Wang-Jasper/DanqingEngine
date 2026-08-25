@@ -140,6 +140,12 @@ message(STATUS "[pybind11] Python3 stdlib: ${Python3_STDLIB}")
 get_filename_component(RENDERER_PYTHON_HOME_PATH "${Python3_STDLIB}" DIRECTORY)
 message(STATUS "[pybind11] PYTHONHOME baked into exe: ${RENDERER_PYTHON_HOME_PATH}")
 
+# Use pybind11's modern FindPython path (we already call find_package(Python3)
+# above). This bypasses the legacy FindPythonLibsNew script, which force-sets
+# policy CMP0148 to OLD and trips a deprecation warning on CMake 4.x.
+# FORCE: older configure runs cached PYBIND11_FINDPYTHON=OFF, which would
+# otherwise override this plain set().
+set(PYBIND11_FINDPYTHON ON CACHE BOOL "Use pybind11's modern FindPython path" FORCE)
 FetchContent_Declare(
     pybind11
     GIT_REPOSITORY https://github.com/pybind/pybind11.git
