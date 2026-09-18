@@ -1,9 +1,9 @@
 # Danqing
 
-A Vulkan deferred renderer with a custom 2D physics engine, an ECS-based scene editor and embedded Python scripting.
+A Vulkan deferred renderer with a custom 3D physics engine, an ECS-based scene editor and embedded Python scripting.
 
 - Deferred G-buffer pipeline with HDR lighting, shadow maps (directional / spot / point), Hi-Z occlusion culling, SSAO, FXAA and bloom
-- Custom 2D rigid-body physics: AABB tree broadphase, GJK/EPA and SAT narrowphase, sequential-impulse solver with warm starting, joints, CCD and island sleeping
+- Custom 3D rigid-body physics: AABB tree broadphase, GJK/EPA and SAT narrowphase, sequential-impulse solver with warm starting, joints, CCD and island sleeping
 - ImGui editor (docking) with viewport, hierarchy, inspector, render settings and script console
 - EnTT-based ECS with JSON scene serialization
 - Embedded Python 3 scripting via pybind11
@@ -19,7 +19,7 @@ A Vulkan deferred renderer with a custom 2D physics engine, an ECS-based scene e
 - G-buffer debug views (position, normal, albedo, depth, Hi-Z mip 0)
 - GPU and CPU profilers, built-in benchmark runner with CSV output
 
-**Physics** (2D, custom)
+**Physics** (3D, custom)
 
 - Dynamic AABB tree broadphase; GJK/EPA and SAT narrowphase with warm starting and manifold persistence
 - Sequential-impulse velocity + position solver, friction and restitution, material properties
